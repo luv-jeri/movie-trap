@@ -27,15 +27,15 @@ export default function Login() {
     if (status === 'success') {
       Cookies.set(
         'authorization',
-        response?.token
+        response?.data?.token
       );
       ls.set(
         'authorization',
-        response?.token
+        response?.data?.token
       );
       axios.defaults.headers.common[
         'authorization'
-      ] = response?.token;
+      ] = response?.data?.token;
       router.push('/');
     }
   };

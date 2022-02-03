@@ -24,6 +24,7 @@ function MyApp({
 
   // ` Authorization Check
   useLayoutEffect(() => {
+   
     if (
       !authorization &&
       (router.pathname !==
@@ -37,11 +38,8 @@ function MyApp({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className='flex-col bg-slate-50 h-screen p-1 scrollbar-hide '>
-     { router.pathname !==
-        '/auth/login' 
-         ? <Header /> : null}
-      <Component {...pageProps} />
+    <div className=' bg-slate-50 h-screen w-screen  p-1 scrollbar-hide  '>
+    <Component {...pageProps} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import {
 import axios from 'axios';
 
 const useAxios = (dataUrl) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [error, setError] =
     useState(null);
   const [isLoading, setIsLoading] =
@@ -24,16 +24,12 @@ const useAxios = (dataUrl) => {
     ) => {
       setIsLoading(true);
       try {
-        const method = method || 'get';
-        const response = await axios({
-          method: type,
-          url: url,
-          params,
-          data: body,
-          cancelToken: source.token,
-        });
+        const method = method || 'GET';
+        const response =
+          await axios.get(dataUrl);
+        console.log(response);
         if (isMounted) {
-          setData(response.data);
+          setData(response.data.data);
           setError(null);
         }
       } catch (err) {

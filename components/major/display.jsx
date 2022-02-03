@@ -6,7 +6,7 @@ export default function Display({
   updates,
 }) {
   return (
-    <div className='flex scrollbar-hide gap-5 justify-around w-full h-full flex-wrap p-4 overflow-scroll text-2xl '>
+    <div className='flex flex-col overflow-scroll scrollbar-hide flex-wrap p-6 text-2xl bg-slate-900 '>
       {data.map((item, index) => {
         return (
           <MovieCard

@@ -1,49 +1,82 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import Image from 'next/image';
+import {
+  HomeIcon,
+  ThumbUpIcon,
+  ThumbDownIcon,
+  HeartIcon,
+  XIcon
+} from '@heroicons/react/solid';
 
 export default function MovieCard({
   data,
   key,
 }) {
-  const { title,poster, genre , director , upVote , downVote , rating ,description} = data;
+  const {
+    title,
+    poster,
+    genre,
+    director,
+    upVote,
+    downVote,
+    rating,
+    description,
+  } = data;
   return (
-    <div className='py-3  w-1/2 sm:max-w-xl sm:mx-auto'>
-      <div className='bg-slate-700 shadow-lg border-slate-400 h-80 w-full	border sm:rounded-3xl p-8 flex space-x-2 '>
-        <div className='h-48 w-98 overflow-visible '>
-          <img
-            className='rounded-3xl shadow-lg'
-            src={poster}
-            alt=''
-          />
-        </div>
-        <div className='flex flex-col w-1/2 space-y-4 justify-around'>
-          <div className='flex justify-between items-start'>
-            <h2 className='text-3xl font-bold text-slate-900'>
-              {title}
-            </h2>
-            <div className='  bg-yellow-400 font-bold rounded-xl p-2'>
-              {rating}
-            </div>
+    <div className=' relative  flex overflow-hidden items-center text-base h-64 bg-zinc-900 m-5'>
+      <span className='absolute top-2 right-0 p-3 w-24 rounded-l-full bg-red-500  text-white font-extrabold font-head text-2xl'>
+        {rating}
+      </span>
+      <div className='h-full w-60'>
+        <img
+          src={poster}
+          className='h-80 w-60 object-cover'
+          alt='movie poster'
+        />
+      </div>
+      <div className='p-4 flex-col justify-center h-full '>
+        <div className='flex-col font-bitter '>
+          <div className='text-md md:text-2xl font-extrabold  tracking-wider'>
+            {title}
           </div>
-          <div>
-            <div className='text-sm text-gray-400'>
+          <div className=''>
+            <span className='font-bitter font-bold text-sm md:text-xl'>
+              Director
+            </span>{' '}
+            :{' '}
+            <span className='font-bitter font-bold text-sm md:text-xl'>
+              {director}
+            </span>
+          </div>
+          <div className=''>
+            <span className='font-bitter font-bold text-sm md:text-xl'>
+              Genre
+            </span>
+            {'   '}: {'   '}
+            <span className='font-bitter font-bold text-sm md:text-xl'>
               {genre}
-            </div>
-            <div className='text-lg text-gray-800'>
-              2019
-            </div>
+            </span>
           </div>
-          <div className=' text-gray-400 max-h-40 scrollbar-hide'>
-            {director}
+          <div className='text-clip overflow-hidden text-xs md:text-xl'>
+            {description}
           </div>
-          <div className='flex gap-2'>
-            <div className='flex text-2xl font-bold text-a text-slate-900'>
-              💖
-            </div>
-            <div className='flex text-2xl font-bold text-a text-slate-900'>
-              💔
-            </div>
+        </div>
+        <div className='flex space-x-12'>
+          <div className='flex space-x-4 mt-12 justify-start items-center'>
+            <ThumbUpIcon
+              className={`h-8 text-green-200 transition ease-in-out delay-150  hover:-translate-15 hover:scale-110 hover:text-green-500 duration-200 `}
+            />
+            <span className=' font-extrabold text-2xl'>
+              {upVote}
+            </span>
+          </div>
+          <div className='flex space-x-4 mt-12 justify-start items-center'>
+            <ThumbDownIcon
+              className={`h-8 text-red-200 transition ease-in-out delay-150  hover:-translate-15 hover:scale-110 hover:text-red-500 duration-200`}
+            />
+            <span className=' font-extrabold text-2xl'>
+              {downVote}
+            </span>
           </div>
         </div>
       </div>
