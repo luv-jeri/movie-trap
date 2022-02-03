@@ -24,22 +24,22 @@ function MyApp({
 
   // ` Authorization Check
   useLayoutEffect(() => {
-   
-    if (
-      !authorization &&
-      (router.pathname !==
-        '/auth/login' ||
-        router.pathname !==
-          '/auth/join')
-    ) {
-      router.push('/auth/login');
-    }
+    const {pathname} =  router
+      if (authorization && pathname.startsWith("/auth")){
+        router.push('/');
+      }
+      if (
+        !authorization &&
+        router.pathname === '/'
+      ) {
+        router.push('/auth/login');
+      }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className=' bg-slate-50 h-screen w-screen  p-1 scrollbar-hide  '>
-    <Component {...pageProps} />
+      <Component {...pageProps} />
     </div>
   );
 }

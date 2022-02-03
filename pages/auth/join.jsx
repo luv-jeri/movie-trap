@@ -42,12 +42,6 @@ export default function Join() {
       <div className='min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-md w-full space-y-8'>
           <div>
-            <Image
-              alt='Mountains'
-              src={logo}
-              layout=''
-              objectFit='none'
-            />
             <h2 className='mt-6 text-center text-3xl font-josefin  font-extrabold text-gray-100'>
               Start sharing your PopCorn
             </h2>
